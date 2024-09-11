@@ -1,0 +1,48 @@
+name: Python Application CI
+
+# Controls when the workflow will run
+on:
+  push:
+    branches:
+      - main
+      - develop
+  pull_request:
+    branches:
+      - main
+      - develop
+
+jobs:
+  test:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        python-version: ['3.8', '3.9', '3.10']  # Specify Python versions you want to test
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          
+      - name: Run tests
+        run: |
+          python -m unittest discover
+        env:
+          # Optionally set environment variables for your tests
+          PYTHON_ENV: test
+
+      # Optionally, if you are using pytest, you can replace the unittest step with:
+      # - name: Run tests with pytest
+      #   run: |
+      #     pip install pytest
+      #     pytest --maxfail=5 --disable-warnings --cov
