@@ -2,7 +2,7 @@ import os
 import cv2
 import tensorflow as tf
 import imageio
-from logger import logger
+from src.logger import logger
 
 class VideoProcessor:
     def __init__(self, video_path: str):

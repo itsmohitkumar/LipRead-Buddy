@@ -1,5 +1,5 @@
 import os
-from logger import logger
+from src.logger import logger
 import tensorflow as tf
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import (Conv3D, LSTM, Dense, Dropout, Bidirectional, 

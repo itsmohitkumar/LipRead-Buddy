@@ -1,9 +1,10 @@
 import streamlit as st
 import os
-from video_processor import VideoProcessor
-from model import LipReadingModel
-from utils import load_alignments, num_to_char
-from logger import logger
+import tensorflow as tf
+from src.video_processor import VideoProcessor
+from src.model import LipReadingModel
+from src.utils import load_alignments, num_to_char
+from src.logger import logger
 
 class LipBuddyApp:
     def __init__(self):

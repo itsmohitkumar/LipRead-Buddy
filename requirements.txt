@@ -4,3 +4,5 @@ streamlit
 imageio
 ffmpeg-python
 pillow
+cv2
+streamlit

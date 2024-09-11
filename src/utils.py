@@ -1,5 +1,6 @@
+import cv2
 import tensorflow as tf
-from logger import logger
+from src.logger import logger
 from typing import List
 
 vocab = [x for x in "abcdefghijklmnopqrstuvwxyz'?!123456789 "]
